@@ -37,12 +37,13 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 ![Image](https://drive.google.com/uc?id=1Lw9ai6xGXZS5i5XdGHIxPiA7uqiJylv2)
 ![Image](https://drive.google.com/uc?id=14pYmG-T7uEcTsF8CWlgMBT-VUEsZaOmx)
 
-## **API Utama
+## **API Utama**
 - `[GET] /api/v1/getAllCustomerAccountByCustomerId` → Mengambil seluruh rekening nasabah berdasarkan ID customer.
 - `[GET] /api/v1/getBalanceByCustomerAccount` → Mengambil saldo berdasarkan nomor rekening.
 - `[GET] /api/v1/getAllTransactionByCustomerId` → Mengambil seluruh transaksi berdasarkan ID customer.
 - `[GET] /api/v1/getForeignExchangeMarket` → Mengambil data kurs terbaru berdasarkan currency tujuan. Sebelum melakukan ini harap untuk menambahkan data pada ForeignExchangeMarket
 - `[POST] /api/v1/createTransactionExchange` → Melakukan konversi dari IDR ke mata uang lain. Sebelum melakukan ini harap untuk menambahkan data pada ForeignExchangeMarket
+
 **Request Body untuk /api/v1/createTransactionExchange**
 ```json
 {

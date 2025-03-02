@@ -57,7 +57,7 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 
 **Response (Jika berhasil)**
 ```json
-
+{
   "id": 3,
   "dateTime": "2025-03-02T22:13:36.1580622",
   "fromAccount": "1223",

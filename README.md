@@ -34,21 +34,64 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 ---
 
 ## API Documentation
-### **Endpoint untuk Customer Account**
+![Image](https://drive.google.com/uc?id=1Lw9ai6xGXZS5i5XdGHIxPiA7uqiJylv2)
+![Image](https://drive.google.com/uc?id=14pYmG-T7uEcTsF8CWlgMBT-VUEsZaOmx)
+
+## **API Utama
 - `[GET] /api/v1/getAllCustomerAccountByCustomerId` → Mengambil seluruh rekening nasabah berdasarkan ID customer.
 - `[GET] /api/v1/getBalanceByCustomerAccount` → Mengambil saldo berdasarkan nomor rekening.
+- `[GET] /api/v1/getAllTransactionByCustomerId` → Mengambil seluruh transaksi berdasarkan ID customer.
+- `[GET] /api/v1/getForeignExchangeMarket` → Mengambil data kurs terbaru berdasarkan currency tujuan. Sebelum melakukan ini harap untuk menambahkan data pada ForeignExchangeMarket
+- `[POST] /api/v1/createTransactionExchange` → Melakukan konversi dari IDR ke mata uang lain. Sebelum melakukan ini harap untuk menambahkan data pada ForeignExchangeMarket
+**Request Body untuk /api/v1/createTransactionExchange**
+```json
+{
+  "fromAccount": "1223", // berisikan rekening nasabah tipe IDR
+  "toAccount": "4567", // berisikan rekening nasabah tipe Valas
+  "fromCurrency": "IDR", 
+  "toCurrency": "USD",
+  "amount": 20000 // rupiah yang mau di tukar menjadi valas
+}
+```
+
+**Response (Jika berhasil)**
+```json
+
+  "id": 3,
+  "dateTime": "2025-03-02T22:13:36.1580622",
+  "fromAccount": "1223",
+  "toAccount": "4567",
+  "fromCurrency": "IDR",
+  "toCurrency": "USD",
+  "amount": 20000,
+  "exchangeRate": {
+    "id": 1,
+    "currencyFrom": "IDR",
+    "currencyTo": "USD",
+    "exchangePrice": 16000,
+    "updatedAt": "2025-03-11T01:51:36"
+  },
+  "exchangeRateAtTransaction": 16000,
+  "convertedAmount": 1.25,
+  "fromAccountBalanceAfter": 10000,
+  "toAccountBalanceAfter": 8.75,
+  "status": "SUCCESS"
+}
+```
+
+## API CRUD (Tambahan)
+### **Endpoint untuk Customer Account**
 - `[POST] /api/v1/createCustomerAccount` → Membuat akun customer.
 - `[PUT] /api/v1/updateCustomerAccount` → Memperbarui informasi akun customer.
 - `[DELETE] /api/v1/deleteCustomerAccount` → Menghapus akun customer.
+- `[POST] /api/v1/depositCustomerAccount` → Menambahkan saldo ke akun customer/rekening customer.
+
 
 ### **Endpoint untuk Transaksi**
-- `[GET] /api/v1/getAllTransactionByCustomerId` → Mengambil seluruh transaksi berdasarkan ID customer.
-- `[POST] /api/v1/createTransactionExchange` → Melakukan konversi dari IDR ke mata uang lain.
 - `[PUT] /api/v1/updateTransaction` → Memperbarui transaksi yang sudah ada dalam sistem.
 - `[DELETE] /api/v1/deleteTransaction` → Menghapus transaksi tertentu.
 
 ### **Endpoint untuk Foreign Exchange Market**
-- `[GET] /api/v1/getForeignExchangeMarket` → Mengambil data kurs terbaru berdasarkan currency tujuan.
 - `[POST] /api/v1/createForeignExchangeMarket` → Menambahkan data baru tentang Foreign Exchange Market.
 - `[PUT] /api/v1/updateForeignExchangeMarket` → Memperbarui data Foreign Exchange Market.
 - `[DELETE] /api/v1/deleteForeignMarket` → Menghapus data pasar valuta asing tertentu.
@@ -62,8 +105,7 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 ---
 
 ## Database Schema
-![Example Image](https://drive.google.com/uc?id=13n9dd7pWNCpysmN3A8pWuAFlGmPYa-Dq)
-
+![Image](https://drive.google.com/uc?id=1TCc1BTVRX1mX6kqoEXAcs82q4XuGsMmV)
 ### **Entitas dalam Sistem**
 #### **Customer**
 | Nama Kolom  | Tipe Data | Keterangan |

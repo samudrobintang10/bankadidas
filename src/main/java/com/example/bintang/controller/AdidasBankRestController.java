@@ -106,6 +106,16 @@ public class AdidasBankRestController {
 
     }
 
+    @PostMapping("/depositCustomerAccount")
+    public ResponseEntity<CustomerAccount> depositCustomerAccount(@RequestParam String account, @RequestParam Float addBalance){
+        CustomerAccount response = new CustomerAccount();
+
+        //get user data
+        response = customerAccountService.addBalance(account, addBalance);
+        return ResponseEntity.ok(response);
+
+    }
+
     @PutMapping("/updateForeignExchangeMarket")
     public ResponseEntity<ForeignExchangeMarket> updateForeignExchangeMarket(@RequestBody ForeignExchangeMarket request){
         ForeignExchangeMarket response = new ForeignExchangeMarket();

@@ -1,5 +1,6 @@
 package com.example.bintang.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -28,9 +29,11 @@ public class ForeignExchangeMarket {
     private LocalDateTime updatedAt;
 
     @Transient
+    @JsonIgnore
     private String rc;
 
     @Transient
+    @JsonIgnore
     private String rcDesc;
 
 }

@@ -29,8 +29,10 @@ public class CustomerAccount {
     private String type;
 
     @Transient
+    @JsonIgnore
     private String rc;
 
     @Transient
+    @JsonIgnore
     private String rcDesc;
 }

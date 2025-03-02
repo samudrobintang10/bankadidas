@@ -64,9 +64,11 @@ public class CustomerAccountService {
         return response;
     }
 
-    public CustomerAccount addBalance(String param) {
-        CustomerAccount response = customerAccountRepository.findByAccount(param);
+    public CustomerAccount addBalance(String account, Float balance) {
+        CustomerAccount response = customerAccountRepository.findByAccount(account);
 
+        response.setBalance(String.valueOf(Float.parseFloat(response.getBalance()) + balance));
+        customerAccountRepository.save(response);
         return response;
     }
 

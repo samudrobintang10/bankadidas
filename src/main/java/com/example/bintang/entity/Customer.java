@@ -1,5 +1,6 @@
 package com.example.bintang.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -23,8 +24,10 @@ public class Customer {
     private String gender;
 
     @Transient
+    @JsonIgnore
     private String rc;
 
     @Transient
+    @JsonIgnore
     private String rcDesc;
 }

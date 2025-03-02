@@ -69,9 +69,11 @@ public class Transaction {
     private String status; // Status transaksi (PENDING, SUCCESS, FAILED)
 
     @Transient
+    @JsonIgnore
     private String rc;
 
     @Transient
+    @JsonIgnore
     private String rcDesc;
 
     @PrePersist

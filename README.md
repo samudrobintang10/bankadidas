@@ -113,8 +113,8 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 |-------------|----------|------------|
 | id_customer | INT (PK) | Identitas unik customer |
 | name        | VARCHAR  | Nama customer |
-| address     | TEXT     | Alamat customer |
-| gender      | ENUM     | Jenis kelamin customer |
+| address     | VARCHAR  | Alamat customer |
+| gender      | VARCHAR  | Jenis kelamin customer |
 
 #### **Customer Account**
 | Nama Kolom           | Tipe Data | Keterangan |
@@ -122,7 +122,7 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 | id_customer_account | INT (PK) | Identitas unik akun customer |
 | id_customer        | INT (FK)  | Foreign key ke Customer |
 | account           | VARCHAR  | Nomor rekening customer |
-| balance          | DECIMAL   | Saldo customer |
+| balance          | VARCHAR   | Saldo customer |
 | type            | VARCHAR   | Jenis mata uang (USD, IDR, dll.) |
 
 #### **Foreign Exchange Market**
@@ -170,6 +170,3 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 4. Gunakan **Postman** atau **Swagger** untuk menguji API yang telah dibuat.
 
 ---
-
-## Lisensi
-Proyek ini dibuat untuk kepentingan akademik dan dapat digunakan untuk referensi pengembangan sistem transaksi keuangan berbasis nilai tukar mata uang.

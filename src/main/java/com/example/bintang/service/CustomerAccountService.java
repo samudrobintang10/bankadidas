@@ -69,4 +69,45 @@ public class CustomerAccountService {
 
         return response;
     }
+
+    @Transactional
+    public CustomerAccount updateCustomerAccount(CustomerAccount param) {
+        CustomerAccount response = new CustomerAccount();
+
+        //get user data
+        response = customerAccountRepository.findById(param.getId()).get();
+
+        //set user address
+        response.setBalance(param.getBalance());
+
+        //save to db
+        customerAccountRepository.save(response);
+        return response;
+    }
+
+    public CustomerAccount deleteUserById(String param) {
+
+        try{
+            customerAccountRepository.deleteById(Integer.valueOf(param));
+
+            if(customerAccountRepository.findById(Integer.valueOf(param)).isPresent()){
+                CustomerAccount response = new CustomerAccount();
+                response.setRc("0005");
+                response.setRcDesc("No data with user id " + param);
+                return response;
+            }
+
+            CustomerAccount response = new CustomerAccount();
+            response.setRc("0000");
+            response.setRcDesc("Successfully delete user id");
+
+            return response;
+
+        } catch (Exception e) {
+            CustomerAccount response = new CustomerAccount();
+            response.setRc("0005");
+            response.setRcDesc("Failed to delete user id");
+            return response;
+        }
+    }
 }

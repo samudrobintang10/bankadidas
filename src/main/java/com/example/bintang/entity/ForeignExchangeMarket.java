@@ -27,5 +27,11 @@ public class ForeignExchangeMarket {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Transient
+    private String rc;
+
+    @Transient
+    private String rcDesc;
+
 }
 

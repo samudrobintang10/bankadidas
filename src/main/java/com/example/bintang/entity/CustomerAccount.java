@@ -27,4 +27,10 @@ public class CustomerAccount {
 
     @Column(name = "type")
     private String type;
+
+    @Transient
+    private String rc;
+
+    @Transient
+    private String rcDesc;
 }

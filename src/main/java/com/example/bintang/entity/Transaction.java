@@ -68,6 +68,12 @@ public class Transaction {
     @Schema(hidden = true)
     private String status; // Status transaksi (PENDING, SUCCESS, FAILED)
 
+    @Transient
+    private String rc;
+
+    @Transient
+    private String rcDesc;
+
     @PrePersist
     protected void onCreate() {
         this.dateTime = LocalDateTime.now(); // Automatically set timestamp before persisting

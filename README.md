@@ -62,6 +62,8 @@ Sistem ini dirancang untuk mengelola transaksi valuta asing berdasarkan nilai tu
 ---
 
 ## Database Schema
+![Example Image](https://drive.google.com/uc?id=13n9dd7pWNCpysmN3A8pWuAFlGmPYa-Dq)
+
 ### **Entitas dalam Sistem**
 #### **Customer**
 | Nama Kolom  | Tipe Data | Keterangan |
